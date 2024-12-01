@@ -5,24 +5,12 @@
  */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/backlight.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/keys.h>
 
 / {
-    behaviors {
-        hold_press: hold_press {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOLD_PRESS";
-            bindings = <&tog>, <&kp>;
-
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "balanced";
-            hold-trigger-key-positions = <19>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -34,10 +22,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q  &kp W  &kp F                  &kp P          &kp B             &kp J      &kp L      &kp U    &kp Y  &kp P       &kp SINGLE_QUOTE
-&mo 3       &kp A  &kp R  &kp S                  &lt 2 T        &kp G             &kp K      &lt 1 N    &kp E    &kp I  &kp O       &tog 4
-&kp LCTRL   &kp Z  &kp X  &kp C                  &kp D          &kp B             &kp COMMA  &kp V      &kp M    &kp H  &kp PERIOD  &kp DOUBLE_QUOTES
-                          &mt LEFT_ALT LEFT_WIN  &kp BACKSPACE  &kp LEFT_SHIFT    &kp ENTER  &kp SPACE  &kp TAB
+&kp ESCAPE  &kp Q  &kp W  &kp F                  &kp P            &kp B             &kp J      &kp L      &kp U    &kp Y  &kp P       &kp SINGLE_QUOTE
+&sl 3       &kp A  &kp R  &kp S                  &lt 2 T          &kp G             &kp K      &lt 1 N    &kp E    &kp I  &kp O       &tog 4
+&kp LCTRL   &kp Z  &kp X  &kp C                  &kp D            &kp B             &kp COMMA  &kp V      &kp M    &kp H  &kp PERIOD  &kp DOUBLE_QUOTES
+                          &mt LEFT_ALT LEFT_WIN  &lt 4 BACKSPACE  &kp LEFT_SHIFT    &kp ENTER  &kp SPACE  &kp TAB
             >;
         };
 
@@ -52,9 +40,9 @@
 
         num_pad {
             bindings = <
-&trans  &trans            &trans        &trans        &trans  &trans    &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans  &bt BT_NXT
-&trans  &kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans    &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans  &trans
-&trans  &trans            &trans        &trans        &trans  &trans    &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans  &trans
+&trans  &trans            &trans        &trans        &trans  &trans    &trans           &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &trans  &bt BT_SEL 0
+&trans  &kp LEFT_CONTROL  &kp LEFT_WIN  &kp LEFT_ALT  &trans  &trans    &trans           &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &trans  &bt BT_SEL 1
+&trans  &trans            &trans        &trans        &trans  &trans    &kp KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &trans  &bt BT_SEL 2
                                         &trans        &trans  &trans    &trans           &trans           &trans
             >;
         };
@@ -70,10 +58,10 @@
 
         nav_arrow {
             bindings = <
-&trans  &trans     &trans        &trans        &trans  &trans    &kp PAGE_UP    &kp HOME           &kp END       &trans        &trans           &trans
-&trans  &kp LCTRL  &kt LEFT_WIN  &kp LEFT_ALT  &trans  &trans    &kp PAGE_DOWN  &kp LEFT           &kp DOWN      &kp UP_ARROW  &kp RIGHT_ARROW  &trans
-&trans  &trans     &trans        &trans        &trans  &trans    &trans         &kp C_VOLUME_DOWN  &kp C_VOL_UP  &trans        &trans           &trans
-                                 &trans        &trans  &trans    &trans         &trans             &trans
+&trans  &trans     &trans        &trans        &trans          &trans    &kp PAGE_UP    &kp HOME           &kp END       &trans        &trans           &bl BL_ON
+&trans  &kp LCTRL  &kt LEFT_WIN  &kp LEFT_ALT  &kp LEFT_SHIFT  &trans    &kp PAGE_DOWN  &kp LEFT           &kp DOWN      &kp UP_ARROW  &kp RIGHT_ARROW  &bl BL_OFF
+&trans  &trans     &trans        &trans        &trans          &trans    &trans         &kp C_VOLUME_DOWN  &kp C_VOL_UP  &bl BL_DEC    &bl BL_INC       &trans
+                                 &trans        &trans          &trans    &trans         &trans             &trans
             >;
         };
     };
