@@ -21,10 +21,10 @@
             //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESCAPE  &kp Q  &kp W  &kp F                  &kp P            &kp B             &kp J      &kp L      &kp U    &kp Y  &kp P       &kp SINGLE_QUOTE
-&sl 3       &kp A  &kp R  &kp S                  &lt 2 T          &kp G             &kp K      &lt 1 N    &kp E    &kp I  &kp O       &sl 3
-&kp LCTRL   &kp Z  &kp X  &kp C                  &kp D            &kp B             &kp COMMA  &kp V      &kp M    &kp H  &kp PERIOD  &kp DOUBLE_QUOTES
-                          &mt LEFT_ALT LEFT_WIN  &lt 4 BACKSPACE  &kp LEFT_SHIFT    &kp ENTER  &kp SPACE  &kp TAB
+&kp ESCAPE  &kp Q  &kp W  &kp F                  &kp P            &kp B             &kp J      &kp L      &kp U       &kp Y  &kp P       &kp DOUBLE_QUOTES
+&sl 3       &kp A  &kp R  &kp S                  &lt 2 T          &kp G             &kp K      &lt 1 N    &kp E       &kp I  &kp O       &sl 3
+&kp LCTRL   &kp Z  &kp X  &kp C                  &kp D            &kp B             &kp COMMA  &kp V      &kp M       &kp H  &kp PERIOD  &kp SINGLE_QUOTE
+                          &mt LEFT_ALT LEFT_WIN  &lt 4 BACKSPACE  &kp LEFT_SHIFT    &kp ENTER  &kp SPACE  &kp DELETE
             >;
         };
 
@@ -57,10 +57,10 @@
 
         nav_arrow {
             bindings = <
-&trans  &trans     &trans        &trans        &trans          &kp HOME         &kp END      &kp HOME           &kp END       &trans        &trans           &bl BL_ON
+&trans  &trans     &trans        &trans        &trans          &kp HOME         &kp END      &trans             &trans        &trans        &trans           &bl BL_ON
 &trans  &kp LCTRL  &kp LEFT_WIN  &kp LEFT_ALT  &kp LEFT_SHIFT  &kp PAGE_DOWN    &kp PAGE_UP  &kp LEFT           &kp DOWN      &kp UP_ARROW  &kp RIGHT_ARROW  &bl BL_OFF
 &trans  &trans     &trans        &trans        &trans          &trans           &trans       &kp C_VOLUME_DOWN  &kp C_VOL_UP  &bl BL_DEC    &bl BL_INC       &trans
-                                 &trans        &trans          &trans           &trans       &trans             &trans
+                                 &trans        &trans          &trans           &kp TAB      &trans             &trans
             >;
         };
     };
